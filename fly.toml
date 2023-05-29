@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for green-butterfly-4308 on 2023-05-29T13:41:57+08:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "green-butterfly-4308"
+primary_region = "hkg"
+
+[deploy]
+  release_command = "npm run build"
+
+[[services]]
+  http_checks = []
+  internal_port = 5000
+  processes = ["app"]
+
+[processes]
+  app = "node app.js"
+
+[build]
+  [build.args]
+    NODE_VERSION = "16.19.1"
+
