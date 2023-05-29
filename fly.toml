@@ -14,12 +14,11 @@ primary_region = "hkg"
   internal_port = 8080
   force_https = true
 
-
 [[services.tcp_checks]]
   grace_period = "1s"
   interval = "15s"
   restart_limit = 0
-  timeout = "2s
+  timeout = "2s"
 
 [[services.http_checks]]
     interval = 10000
