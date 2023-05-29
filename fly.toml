@@ -12,6 +12,7 @@ primary_region = "hkg"
 [[services]]
   http_checks = []
   internal_port = 8080
+  protocol = "tcp"
   processes = ["app"]
 
 [processes]
