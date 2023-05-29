@@ -9,11 +9,10 @@ primary_region = "hkg"
 [deploy]
   release_command = "npm run build"
 
-[[services]]
-  http_checks = []
+[http_service]
+  processes = ["app"] 
   internal_port = 8080
-  protocol = "tcp"
-  processes = ["app"]
+  force_https = true
 
 [processes]
   app = "node app.js"
