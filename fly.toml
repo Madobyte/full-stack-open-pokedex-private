@@ -20,6 +20,13 @@ primary_region = "hkg"
   processes = ["app"] 
   internal_port = 8080
 
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  
   [[services.http_checks]]
     interval = 10000
     grace_period = "5s"
