@@ -18,6 +18,11 @@ primary_region = "hkg"
 
 [env]
   PORT = "8080"
+  
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+  processes = ["app"]
 
 [[services.script_checks]]
     command       = "x"
