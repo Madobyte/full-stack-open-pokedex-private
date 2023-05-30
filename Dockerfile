@@ -6,6 +6,8 @@ FROM node:${NODE_VERSION}-slim as base
 
 LABEL fly_launch_runtime="NodeJS"
 
+RUN apt-get update; apt install -y curl
+
 # NodeJS app lives here
 WORKDIR /app
 
@@ -20,7 +22,6 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install -y python pkg-config build-essential 
 
-RUN apt-get update; apt install -y curl
 
 # Install node modules
 COPY --link package.json package-lock.json .
