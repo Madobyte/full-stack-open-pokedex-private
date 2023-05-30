@@ -31,6 +31,13 @@ primary_region = "hkg"
   [[services.ports]]
     handlers = ["tls", "http"]
     port = "443"
+    
+  [[services.script_checks]]
+    command = "./health_check.sh"
+    grace_period = "1s"
+    interval = "5s"
+    restart_limit = 0
+    timeout = "1s"
 
   [[services.http_checks]]
     interval = 10000
@@ -43,9 +50,3 @@ primary_region = "hkg"
     tls_skip_verify = false
     [services.http_checks.headers]
 
-  [[services.script_checks]]
-    command = "./health_check.sh"
-    grace_period = "1s"
-    interval = "5s"
-    restart_limit = 0
-    timeout = "1s"
