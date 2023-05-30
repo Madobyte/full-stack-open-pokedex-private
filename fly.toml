@@ -23,7 +23,7 @@ primary_region = "hkg"
   internal_port = 8080
   protocol = "tcp"
   processes = ["app"]
-  script_checks: [{
+  script_checks = [{
     command: "chmod +x health_check.sh"
     grace_period: "1s"
     interval: "5s"
