@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: Get commit messages
         env:
-          COMMIT_MESSAGES: ${{ constains(join(github.event.commits.*.message), '#skip') }}
+          COMMIT_MESSAGES: ${{ contains(join(github.event.commits.*.message), '#skip') }}
         run: echo "$COMMIT_MESSAGES"
       - uses: actions/checkout@v3
         with:
