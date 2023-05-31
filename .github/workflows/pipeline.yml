@@ -37,10 +37,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Get commit messages
-        env:
-          IS_SKIP: ${{ contains(join(github.event.commits.*.message), '#skip') }}
-        run: echo "$IS_SKIP"
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
@@ -48,5 +44,6 @@ jobs:
         uses: anothrNick/github-tag-action@1.55.0
         if: ${{ IS_SKIP }}
         env:
+          IS_SKIP: ${{ contains(join(github.event.commits.*.message), '#skip') }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
