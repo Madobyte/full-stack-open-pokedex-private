@@ -37,6 +37,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Get commit messages
+          COMMIT_MESSAGES: ${{ constains(join(github.event.commits.*.message), '#skip') }}
+        run: echo "$COMMIT_MESSAGES"
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
