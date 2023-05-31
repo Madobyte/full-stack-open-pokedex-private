@@ -40,6 +40,7 @@ jobs:
       - name: Get commit messages
         env:
           IS_SKIP: ${{ contains(join(github.event.commits.*.message), '#skip') }}
+        run: echo "$IS_SKIP"
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
