@@ -12,6 +12,6 @@ describe('Pokedex', function () {
 
   it('Pokemon page can be opened', () => {
     cy.contains('bulbasaur').click()
-    cy.contains('chlorophyll')
+    cy.contains('chlorophyllx') // induce an error
   })
 })
