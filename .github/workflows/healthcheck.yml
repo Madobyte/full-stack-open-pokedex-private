@@ -9,7 +9,7 @@ jobs:
   url_health_check:
     runs-on: ubuntu-20.04
     steps:
-      name: Check the deployed service URL
-      uses: jtalk/url-health-check-action@v3
-      with:
-        url: https://green-butterfly-4308.fly.dev/health
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v3
+        with:
+          url: https://green-butterfly-4308.fly.dev/health
