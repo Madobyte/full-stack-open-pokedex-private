@@ -11,6 +11,8 @@ app.get('/health', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
+  throw 'error...'
+  /* eslint-disable no-unreachable */
   res.send('ok!')
 })
 
