@@ -38,6 +38,7 @@ jobs:
           details: Test Succeeded!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           text: A new version of Pokedex deployed
+          description: to https://green-butterfly-4308.fly.dev/ by ${{ github.event.head_commit.author.username }}
       - name: Test Failure
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ github.event_name == 'push' && failure() }}
@@ -46,6 +47,7 @@ jobs:
           details: Test Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           text: Build failed
+          description: commit ${{ github.event.head_commit.url }} by ${{ github.event.head_commit.author.username }} broke the build :(
       - name: Test Cancelled
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ github.event_name == 'push' && cancelled() }}
